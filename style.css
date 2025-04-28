@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #fceabb, #f8b500, #ff6f91, #c94b4b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #494747;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #c94b4b;
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px #ffadc2, 0 0 20px #ffc3c3; }
+    to { text-shadow: 0 0 20px #ff6f91, 0 0 30px #ffc3c3; }
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    animation: fadeInUp 1s ease forwards;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+.card:hover {
+    background-color: rgb(135, 154, 87);
+    color: beige;
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 0 20px #ffb6c1, 0 0 40px #ffc0cb;
+    transition: all 0.4s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff99aa, 0 0 30px #ffd3dc;
+}
+
+
+.img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.card p {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.price {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #c94b4b;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px 5px #ffadc2;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin-top: 40px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.petal {
+    position: fixed;
+    top: -50px;
+    width: 80px;
+    height: 40px;
+    background-image: url('./images/petalss.png');
+    background-size: cover;
+    opacity: 0.8;
+    animation: fall 10s linear infinite;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffedf0;
+    color: #c94b4b;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px #ffc2d0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .tooltip {
+    opacity: 1;
+}
